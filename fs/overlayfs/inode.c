@@ -208,7 +208,8 @@ static int ovl_readlink(struct dentry *dentry, char __user *buf, int bufsiz)
 	return realinode->i_op->readlink(realpath.dentry, buf, bufsiz);
 }
 
-bool ovl_is_private_xattr(const char *name)
+
+static bool ovl_is_private_xattr(const char *name)
 {
 	return strncmp(name, "trusted.overlay.", 14) == 0;
 }
